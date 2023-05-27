@@ -1,5 +1,5 @@
 {
-  "name": "criptos-react",
+  "name": "cryptocurrency-quote",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -9,8 +9,10 @@
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
+    "gh-pages": "^5.0.0",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.0",

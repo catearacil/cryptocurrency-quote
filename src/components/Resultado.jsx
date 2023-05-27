@@ -22,9 +22,12 @@ const Texto = styled.p`
 `
 
 const Precio = styled.p`
-    font-size: 24px;
+    font-size: 23px;
     span {
         font-weight: 700;
+    }
+    @media screen {
+       font-size: 26px; 
     }
 `
 

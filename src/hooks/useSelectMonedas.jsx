@@ -27,7 +27,7 @@ const useSelectMonedas = (label, opciones) => {
                 value={state}
                 onChange={ e => setState( e.target.value )}
             >
-                <option value="">Select...</option>
+                <option value="" disabled selected> Select...</option>
                 {opciones.map( opcion => (
                     <option 
                         key={opcion.id}

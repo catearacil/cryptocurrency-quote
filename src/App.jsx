@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 import Formulario from "./components/Formulario";
 import Resultado from "./components/Resultado";
@@ -18,7 +18,7 @@ const Contenedor = styled.div`
 const Imagen = styled.img`
   max-width: 400px;
   width: 80%;
-  margin: 100px auto 0 auto;
+  margin: 80px auto 0 auto;
   display: block;
 `;
 
@@ -45,6 +45,7 @@ function App() {
   const [monedas, setMonedas] = useState({});
   const [resultado, setResultado] = useState({});
   const [cargando, setCargando] = useState(false);
+  const resultadoRef = useRef(null);
 
   useEffect(() => {
     if (Object.keys(monedas).length > 0) {
@@ -61,6 +62,10 @@ function App() {
         setResultado(resultado.DISPLAY[criptomoneda][moneda]);
 
         setCargando(false);
+
+        if (resultadoRef.current) {
+          resultadoRef.current.scrollIntoView({ behavior: "smooth" });
+        }
       };
 
       cotizarCripto();
@@ -75,8 +80,10 @@ function App() {
         <Heading>Instantly Quote Cryptocurrencies</Heading>
         <Formulario setMonedas={setMonedas} />
 
-        {cargando && <Spinner />}
-        {resultado.PRICE && <Resultado resultado={resultado} />}
+        <div ref={resultadoRef}>
+          {cargando && <Spinner />}
+          {resultado.PRICE && <Resultado resultado={resultado} />}
+        </div>
       </div>
     </Contenedor>
   );
